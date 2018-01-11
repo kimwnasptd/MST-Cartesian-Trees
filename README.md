@@ -1,5 +1,4 @@
 # MST-Cartesian-Trees
--
 The other day in my CS Classes they gave us an assignment where given a graph with edges
 and weights, we had to answer a range of queries for the Minimax Path Problem. The number of
 queries was ~ 100.000 and the Graph could have up to V=30.000 Nodes. This means that a naive
@@ -7,7 +6,6 @@ implementation of just finding an MST and then with a modified DFS to calculate 
 distance between all the pairs wouldn't do the job since it would have O(V^2) complexity.
 
 # On to Cartesian Trees
--
 The most efficient solution for the problem would be to create a Cartesian Tree based from
 the Minumum Spanning Tree which allows us to find the minimax distance between any pair of 
 vertices to be queried in constant time per query, using lowest common ancestor queries in 
@@ -29,7 +27,6 @@ actually answering the queries.
 Bellow I'll give a basic explanation of the algorithm used to create the Cartesian Tree.
 
 # Creating the Cartesian Tree
--
 To do this instead of creating the tree top-down we will create it Bottom-Up. We will be 
 constantly changing the parents of the current nodes and keep creating the tree until we
 get to the top. The top Node will be the node V + E (where E = V - 1) and it's value will
@@ -48,7 +45,6 @@ update the values of that node (its children) as well as its children (change th
 their parent). 
 
 # Answering the Queries
--
 I won't get into the technical details here, since there is this [tons of helpful](https://www.topcoder.com/community/data-science/data-science-tutorials/range-minimum-query-and-lowest-common-ancestor/)
 explanation of the procedure from here on. The general idea is that from this Cartesian 
 tree we can find the minimax shortest path by finding the Lowest Common Ancestor in the 
